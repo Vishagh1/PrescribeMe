@@ -23,7 +23,7 @@ class Registration(generics.CreateAPIView):
                 token = Token.objects.get(user = my_user).key
                 data['old_token']=token
                 data['username']=my_user.username
-                current_site = 'http://eprescribeserver.pythonanywhere.com'
+                current_site = 'http://prescribeme-production.up.railway.app'
                 relative_link = reverse('verifyEmail')          
                 absurl = current_site + relative_link + "?token="+str(token) 
                 email_body = 'Hi ' + my_user.username + ' Use link below to verify your email \n' + absurl  

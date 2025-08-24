@@ -47,7 +47,7 @@ class MedicineSuggestion(generics.ListCreateAPIView):
         try:
             doctor = MyUser.objects.get(user_id=self.request.user.user_id)
             med_name = self.request.data["med_name"]
-            current_site = 'http://eprescribeserver.pythonanywhere.com'
+            current_site = 'http://prescribeme-production.up.railway.app'
             relative_link = '/prescription/medicine/'        
             absurl = current_site + relative_link +  med_name
             email_body = 'The Doctor with username ' + doctor.username + 'has suggested to add a medicine.The name of medicine is'+med_name+'\nUse link below to verify the doctor \n' + absurl  
